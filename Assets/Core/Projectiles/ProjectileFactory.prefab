@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1746745065656822}
+  m_IsPrefabParent: 1
+--- !u!1 &1746745065656822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4821700689330332}
+  - component: {fileID: 114058705452322248}
+  m_Layer: 0
+  m_Name: ProjectileFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4821700689330332
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746745065656822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114058705452322248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746745065656822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b0f7708e50f0f46b6e4ec5e22de22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePool:
+    objectPrefab: {fileID: 1211883727333888, guid: 16f1dc713c0226946839d6b1856b2e91,
+      type: 2}
+    parentContainer: {fileID: 1746745065656822}
+    maxPoolSize: 100
+  blueProjectile: {fileID: 21300000, guid: c503c67dfa0b4494e9a47c371c4ecb9f, type: 3}
+  greenProjectile: {fileID: 21300000, guid: a9de53c55a49ba34b88dd20dcaac3c56, type: 3}
+  redProjectile: {fileID: 21300000, guid: 5a9332e6580cf434caac68bc8653f060, type: 3}
+  enemyProjectile: {fileID: 21300000, guid: 312817d3b6755aa4da61ecc1c18346e5, type: 3}

@@ -1,0 +1,65 @@
+{
+	"leveldefinitions": [{
+			"LevelNumber": 1,
+			"MainWaveDefinition": [{
+				"type": 0,
+				"xpos": 1.5,
+				"ypos": 2.5
+			},
+			{
+				"type": 0,
+				"xpos": 2.5,
+				"ypos": 2.5
+			},
+			{
+				"type": 0,
+				"xpos": 3.5,
+				"ypos": 2.5
+			},
+			{
+				"type": 0,
+				"xpos": 4.5,
+				"ypos": 2.5
+			},
+			{
+				"type": 1,
+				"xpos": 1.5,
+				"ypos": 4.5
+			},
+			{
+				"type": 1,
+				"xpos": 2.5,
+				"ypos": 4.5
+			},
+			{
+				"type": 2,
+				"xpos": 3.5,
+				"ypos": 3.5
+			},
+			{
+				"type": 2,
+				"xpos": 4.5,
+				"ypos": 4.5
+			}
+			],
+			"BossWaveDefinition": [{
+				"type": 1,
+				"xpos": 2.5,
+				"ypos": 3.5
+			}]
+		},
+		{
+			"LevelNumber": 2,
+			"MainWaveDefinition": [{
+				"type": 2,
+				"xpos": 3.5,
+				"ypos": 4.5
+			}],
+			"BossWaveDefinition": [{
+				"type": 2,
+				"xpos": 2.5,
+				"ypos": 3.5
+			}]
+		}
+	]
+}
