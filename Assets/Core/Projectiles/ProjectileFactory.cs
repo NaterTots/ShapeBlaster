@@ -50,6 +50,11 @@ public class ProjectileFactory : MonoBehaviour
 		newProjectile.layer = (int)typeDef.Layer;
 	}
 
+	public void KillAllProjectiles()
+	{
+		projectilePool.DeactivateAll();
+	}
+
 	private void GenerateTypeMap()
 	{
 		//this is all throwaway code

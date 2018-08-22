@@ -100,6 +100,9 @@ public class Player : MonoBehaviour
 			{
 				OnPlayerDead();
 			}
+
+			ToggleShootingControl(false);
+			gameObject.SetActive(false);
 		}
 	}
 

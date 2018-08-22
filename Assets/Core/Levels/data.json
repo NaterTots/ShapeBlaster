@@ -60,6 +60,19 @@
 				"xpos": 2.5,
 				"ypos": 3.5
 			}]
+		},
+		{
+			"LevelNumber": 3,
+			"MainWaveDefinition": [{
+				"type": 2,
+				"xpos": 3.5,
+				"ypos": 4.5
+			}],
+			"BossWaveDefinition": [{
+				"type": 2,
+				"xpos": 2.5,
+				"ypos": 3.5
+			}]
 		}
 	]
 }

@@ -26,10 +26,12 @@ public class EnemyFactory : MonoBehaviour
 
 	}
 
-	public void SpawnNewEnemy(EnemyType enemyType, Vector2 pos)
+	public Enemy SpawnNewEnemy(EnemyType enemyType, Vector2 pos)
 	{
 		var newEnemy = enemyPool.InitNewObject();
-		newEnemy.GetComponent<Enemy>().Initialize(typeDefinitionMap[enemyType], pos);
+		var enemy = newEnemy.GetComponent<Enemy>();
+		enemy.Initialize(typeDefinitionMap[enemyType], pos);
+		return enemy;
 	}
 
 	/// <summary>
