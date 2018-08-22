@@ -16,6 +16,7 @@ public enum ProjectileLauncherType
 {
 	Straight,
 	Spread,
+	MachineGun,
 	EnemyBasic,
 	EnemyRandom
 }

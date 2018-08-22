@@ -30,12 +30,31 @@ public class GameDirector : MonoBehaviour
 	private int currentLevelNum = 1;
 	private LevelDefinition currentLevelDefinition;
 
+	private static GameDirector instance;
+	public static GameDirector Instance
+	{
+		get
+		{
+			return instance;
+		}
+
+	}
+
 	// Use this for initialization
 	void Start()
 	{
 		inputController = GameController.GetController<InputController>();
 		thePlayer.OnPlayerDead += OnPlayerDead;
 		TransitionToState(DirectorState.LoadingLevel);
+		instance = this;
+	}
+
+	private void OnDestroy()
+	{
+		if (instance == this)
+		{
+			instance = null;
+		}
 	}
 
 	void TransitionToState(DirectorState newState)

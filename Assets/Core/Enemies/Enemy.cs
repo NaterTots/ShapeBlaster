@@ -75,6 +75,7 @@ public class Enemy : MonoBehaviour
 	private void Die()
 	{
 		GameStats.GlobalStats.ChangeScore(TypeDefinition.PointsForKilling);
+		PowerupSystem.Instance.EnemyDied(transform.position);
 		gameObject.SetActive(false);
 	}
 

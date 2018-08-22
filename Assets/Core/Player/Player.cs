@@ -64,9 +64,16 @@ public class Player : MonoBehaviour
 			ChangeHealth(-projectile.Damage);
 			projectile.OnHitSomething();
 		}
+
+		var powerup = collider.gameObject.GetComponent<Powerup>();
+		if (powerup != null)
+		{
+			powerup.TypeDefinition.OnCollectMethod();
+			powerup.OnHitSomething();
+		}
 	}
 
-	private void ChangeHealth(int diff)
+	public void ChangeHealth(int diff)
 	{
 		SetHealth(Health + diff);
 	}
@@ -74,6 +81,7 @@ public class Player : MonoBehaviour
 	private void SetHealth(int health)
 	{
 		Health = health;
+		Health = Mathf.Min(Health, maxHealth);
 		if (OnHealthChanged != null)
 		{
 			OnHealthChanged(Health);
@@ -88,6 +96,7 @@ public class Player : MonoBehaviour
 	private void SetLives(int lives)
 	{
 		Lives = lives;
+		Lives = Mathf.Min(Lives, maxLives);
 		if (OnLivesChanged != null)
 		{
 			OnLivesChanged(Lives);
@@ -104,6 +113,21 @@ public class Player : MonoBehaviour
 			ToggleShootingControl(false);
 			gameObject.SetActive(false);
 		}
+	}
+
+	public void AddLives(int lives)
+	{
+		SetLives(Lives + lives);
+	}
+
+	public void SetGunAsMachineGun()
+	{
+		projectileLauncher.SetTypeDefinition(ProjectileLauncherFactory.GetLauncherTypeDefinition(ProjectileLauncherType.Straight));
+	}
+
+	public void SetGunAsSpread()
+	{
+		projectileLauncher.SetTypeDefinition(ProjectileLauncherFactory.GetLauncherTypeDefinition(ProjectileLauncherType.Spread));
 	}
 
 	private void OnDied()

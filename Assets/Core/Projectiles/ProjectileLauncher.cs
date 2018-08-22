@@ -23,6 +23,11 @@ public class ProjectileLauncher : MonoBehaviour
 		Direction = direction;
 	}
 
+	public void SetTypeDefinition(ProjectileLauncherTypeDefinition typeDef)
+	{
+		TypeDefinition = typeDef;
+	}
+
 	// Update is called once per frame
 	void Update ()
 	{

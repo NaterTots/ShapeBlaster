@@ -9,50 +9,54 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1851496341781352}
+  m_RootGameObject: {fileID: 1427493596344612}
   m_IsPrefabParent: 1
---- !u!1 &1851496341781352
+--- !u!1 &1427493596344612
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4194087071573030}
-  - component: {fileID: 114663421594203028}
-  m_Layer: 0
-  m_Name: GameDirector
+  - component: {fileID: 4933340378199104}
+  - component: {fileID: 114677330113008208}
+  m_Layer: 14
+  m_Name: PowerupSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4194087071573030
+--- !u!4 &4933340378199104
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851496341781352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1427493596344612}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114663421594203028
+--- !u!114 &114677330113008208
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851496341781352}
+  m_GameObject: {fileID: 1427493596344612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9234a238550b9534ab1c74dc87ebc412, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b55235a284b48e4594fc1528e62a5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyFactory: {fileID: 0}
-  thePlayer: {fileID: 0}
-  levelUI: {fileID: 0}
-  levelUIText: {fileID: 0}
-  levelSubText: {fileID: 0}
+  powerupPool:
+    objectPrefab: {fileID: 1216924078587468, guid: fd59aa52a8f7f054fb96d74df6910eb9,
+      type: 2}
+    parentContainer: {fileID: 1427493596344612}
+    maxPoolSize: 5
+  extraLifeSprite: {fileID: 21300000, guid: efe0f8d72918f804ca54ee626ecc261d, type: 3}
+  healthSprite: {fileID: 21300000, guid: 7ff87c822c1bdd24a96de66cc2911d11, type: 3}
+  machineGunSprite: {fileID: 21300000, guid: ae70288f9e5974c4c9f1366b144df1be, type: 3}
+  spreadGunSprite: {fileID: 21300000, guid: 386109abf74634e45985177b75cea9df, type: 3}

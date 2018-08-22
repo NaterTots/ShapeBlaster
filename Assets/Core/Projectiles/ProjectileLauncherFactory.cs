@@ -38,7 +38,14 @@ public static class ProjectileLauncherFactory
 			spreadTypeDef.OnFireMethod = OnFireSpread;
 			typeDefinitionMap.Add(spreadTypeDef.LauncherType, spreadTypeDef);
 		}
-
+		{
+			var machineGunTypeDef = new ProjectileLauncherTypeDefinition();
+			machineGunTypeDef.LauncherType = ProjectileLauncherType.MachineGun;
+			machineGunTypeDef.ProjectileType = ProjectileType.Red;
+			machineGunTypeDef.TimeBetweenShots = 0.2f;
+			machineGunTypeDef.OnFireMethod = OnFireStraight;
+			typeDefinitionMap.Add(machineGunTypeDef.LauncherType, machineGunTypeDef);
+		}
 		{
 			var enemyBasicTypeDef = new ProjectileLauncherTypeDefinition();
 			enemyBasicTypeDef.LauncherType = ProjectileLauncherType.EnemyBasic;
