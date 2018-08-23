@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
 		{
 			ChangeHealth(-projectile.Damage);
 			projectile.OnHitSomething();
+			GameController.GetController<SoundController>().PlaySoundEffect(SoundController.SoundEffect.PlayerHit);
 		}
 
 		var powerup = collider.gameObject.GetComponent<Powerup>();
@@ -70,6 +71,7 @@ public class Player : MonoBehaviour
 		{
 			powerup.TypeDefinition.OnCollectMethod();
 			powerup.OnHitSomething();
+			GameController.GetController<SoundController>().PlaySoundEffect(SoundController.SoundEffect.PickupPowerup);
 		}
 	}
 
@@ -111,6 +113,7 @@ public class Player : MonoBehaviour
 			}
 
 			ToggleShootingControl(false);
+			GameController.GetController<SoundController>().PlaySoundEffect(SoundController.SoundEffect.LostGame);
 			gameObject.SetActive(false);
 		}
 	}

@@ -11,16 +11,11 @@ public enum GameStates
 	[StateScene("Main")]
 	Main,
 
+	[StateScene("GameOver")]
+	GameOver,
 
-	//CustomizeAvatar,
-
-	//[StateScene("CreateParty")]
-	//CreateParty,
-
-	//JoinParty,
-
-	//[StateScene("VideoSearch")]
-	//VideoSearch,
+	[StateScene("HighScore")]
+	HighScore,
 
 	[StateScene("Credits")]
 	Credits

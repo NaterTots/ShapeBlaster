@@ -77,6 +77,7 @@ public class Enemy : MonoBehaviour
 		GameStats.GlobalStats.ChangeScore(TypeDefinition.PointsForKilling);
 		PowerupSystem.Instance.EnemyDied(transform.position);
 		gameObject.SetActive(false);
+		GameController.GetController<SoundController>().PlaySoundEffect(SoundController.SoundEffect.Explosion);
 	}
 
 	public void StopMoveAndShoot()

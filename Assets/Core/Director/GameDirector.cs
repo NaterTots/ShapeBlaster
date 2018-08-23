@@ -303,18 +303,21 @@ public class GameDirector : MonoBehaviour
 
 	#region GameOverLoss
 
+	bool readyForEndOfGame = false;
+
 	void StartGameOverLoss()
 	{
 		enemyFactory.StartMoveAndShootOfAllEnemies();
 		ProjectileFactory.TheFactory.KillAllProjectiles();
 
 		DisplayLevelUIWithoutSubtext("game over");
+		readyForEndOfGame = false;
 		StartCoroutine(WaitToDisplayUISubtext());
 	}
 
 	void UpdateGameOverLoss()
 	{
-
+		UpdateEndOfGame();
 	}
 
 	#endregion
@@ -326,17 +329,33 @@ public class GameDirector : MonoBehaviour
 		ProjectileFactory.TheFactory.KillAllProjectiles();
 
 		DisplayLevelUIWithoutSubtext("beat the game");
+		readyForEndOfGame = false;
 		StartCoroutine(WaitToDisplayUISubtext());
 	}
 
 	void UpdateGameOverWin()
 	{
-
+		UpdateEndOfGame();
 	}
 
 	#endregion
 
 	#region Helpers
+
+	private void UpdateEndOfGame()
+	{
+		if (readyForEndOfGame && inputController.IsFirePressed())
+		{
+			if (HighScores.Instance.WouldScoreAppearOnHighScoreBoard(GameStats.GlobalStats.Score))
+			{
+				GameController.GetController<GameStateEngine>().ChangeGameState(GameStates.GameOver);
+			}
+			else
+			{
+				GameController.GetController<GameStateEngine>().ChangeGameState(GameStates.HighScore);
+			}
+		}
+	}
 
 	private void DisplayLevelUIWithoutSubtext(int levelNum)
 	{
@@ -354,6 +373,7 @@ public class GameDirector : MonoBehaviour
 	private void DisplayLevelUISubText()
 	{
 		levelSubText.gameObject.SetActive(true);
+		readyForEndOfGame = true;
 	}
 
 	private void RemoveLevelUI()

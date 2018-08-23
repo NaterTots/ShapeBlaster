@@ -12,6 +12,21 @@ public class SoundController : MonoBehaviour , IPersistedController
 	public AudioMixerSnapshot paused;
 	public AudioMixerSnapshot unpaused;
 
+	public AudioClip backgroundMusic;
+
+	public AudioClip explosionClip;
+	public AudioClip playerHitClip;
+	public AudioClip lostGameClip;
+	public AudioClip pickupPowerupClip;
+
+	public enum SoundEffect
+	{
+		Explosion,
+		PlayerHit,
+		LostGame,
+		PickupPowerup
+	}
+
 	void Awake()
 	{
 		GameController.AddController(this);
@@ -26,6 +41,8 @@ public class SoundController : MonoBehaviour , IPersistedController
 		//Setting effectsVolumeSetting = GameController.GetController<ConfigurationController>().GetSetting(ConfigurationSettings.SoundEffectsVolume);
 		//effectsVolume = effectsVolumeSetting.GetValueAsFloat();
 		//effectsVolumeSetting.AddChangedEventListener(OnSoundEffectVolumeSettingChanged);
+
+		PlayMusic(backgroundMusic);
 	}
 
 	//Used to play single sound clips.
@@ -44,6 +61,28 @@ public class SoundController : MonoBehaviour , IPersistedController
 		//Play the clip.
 		effectsSource.volume = effectsVolume;
 		effectsSource.PlayOneShot(clip);
+	}
+
+	public void PlaySoundEffect(SoundEffect soundEffect)
+	{
+		AudioClip clip = null;
+		switch (soundEffect)
+		{
+			case SoundEffect.Explosion:
+				clip = explosionClip;
+				break;
+			case SoundEffect.LostGame:
+				clip = lostGameClip;
+				break;
+			case SoundEffect.PickupPowerup:
+				clip = pickupPowerupClip;
+				break;
+			case SoundEffect.PlayerHit:
+				clip = playerHitClip;
+				break;
+		}
+
+		PlayClipOneShot(clip);
 	}
 
 	//used to play background music

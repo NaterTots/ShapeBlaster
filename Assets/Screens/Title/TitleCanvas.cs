@@ -25,4 +25,9 @@ public class TitleCanvas : MonoBehaviour
 	{
 		GameController.GetController<GameStateEngine>().ChangeGameState(GameStates.Credits);
 	}
+
+	public void OnGoToHighScore()
+	{
+		GameController.GetController<GameStateEngine>().ChangeGameState(GameStates.HighScore);
+	}
 }

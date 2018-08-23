@@ -44,7 +44,10 @@ public class GameStats : MonoBehaviour
 	{
 		Score = newScore;
 		string scoreAsText = Score.ToString();
-		scoreHud.text = scoreAsText.PadLeft(6, '0');
+		if (scoreHud != null)
+		{
+			scoreHud.text = scoreAsText.PadLeft(6, '0');
+		}
 	}
 
 	public void ChangeScore(int diff)

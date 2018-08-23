@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class MainCanvas : MonoBehaviour
 {
-	// Use this for initialization
-	void Start ()
-	{
+	public Text scoreText;
 
+	void Awake ()
+	{
+		GameStats.GlobalStats.scoreHud = scoreText;
 	}
 	
-	// Update is called once per frame
-	void Update ()
+	void OnDestroy ()
 	{
-		
+		GameStats.GlobalStats.scoreHud = null;
 	}
 
 }
