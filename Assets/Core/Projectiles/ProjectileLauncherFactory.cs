@@ -42,7 +42,7 @@ public static class ProjectileLauncherFactory
 			var machineGunTypeDef = new ProjectileLauncherTypeDefinition();
 			machineGunTypeDef.LauncherType = ProjectileLauncherType.MachineGun;
 			machineGunTypeDef.ProjectileType = ProjectileType.Red;
-			machineGunTypeDef.TimeBetweenShots = 0.2f;
+			machineGunTypeDef.TimeBetweenShots = 0.1f;
 			machineGunTypeDef.OnFireMethod = OnFireStraight;
 			typeDefinitionMap.Add(machineGunTypeDef.LauncherType, machineGunTypeDef);
 		}

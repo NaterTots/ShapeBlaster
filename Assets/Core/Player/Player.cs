@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class Player : MonoBehaviour
 {
 	private InputController inputController;
@@ -9,7 +10,10 @@ public class Player : MonoBehaviour
 	public int maxHealth = 6;
 	public int maxLives = 3;
 
-	public ProjectileLauncherType launcherType;
+	public Sprite blueSprite;
+	public Sprite greenSprite;
+	public Sprite orangeSprite;
+	public Sprite redSprite;
 
 	ProjectileLauncher projectileLauncher;
 
@@ -26,7 +30,8 @@ public class Player : MonoBehaviour
 		rigidBody = GetComponent<Rigidbody2D>();
 
 		projectileLauncher = GetComponentInChildren<ProjectileLauncher>();
-		projectileLauncher.Initialize(ProjectileLauncherFactory.GetLauncherTypeDefinition(launcherType), Vector2.up);
+		projectileLauncher.Initialize(ProjectileLauncherFactory.GetLauncherTypeDefinition(ProjectileLauncherType.Straight), Vector2.up);
+		GetComponent<SpriteRenderer>().sprite = greenSprite;
 
 		inputController.AddKeyCodeListener(KeyCode.Space, OnFire);
 
@@ -125,12 +130,14 @@ public class Player : MonoBehaviour
 
 	public void SetGunAsMachineGun()
 	{
-		projectileLauncher.SetTypeDefinition(ProjectileLauncherFactory.GetLauncherTypeDefinition(ProjectileLauncherType.Straight));
+		projectileLauncher.SetTypeDefinition(ProjectileLauncherFactory.GetLauncherTypeDefinition(ProjectileLauncherType.MachineGun));
+		GetComponent<SpriteRenderer>().sprite = redSprite;
 	}
 
 	public void SetGunAsSpread()
 	{
 		projectileLauncher.SetTypeDefinition(ProjectileLauncherFactory.GetLauncherTypeDefinition(ProjectileLauncherType.Spread));
+		GetComponent<SpriteRenderer>().sprite = blueSprite;
 	}
 
 	private void OnDied()
