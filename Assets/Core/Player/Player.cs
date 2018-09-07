@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 	public int Health { get; set; }
 	public int Lives { get; set; }
 
+	public ProjectileLauncherType startingLauncher;
+
 	private bool _canShoot = true;
 
 	// Use this for initialization
@@ -30,7 +32,7 @@ public class Player : MonoBehaviour
 		rigidBody = GetComponent<Rigidbody2D>();
 
 		projectileLauncher = GetComponentInChildren<ProjectileLauncher>();
-		projectileLauncher.Initialize(ProjectileLauncherFactory.GetLauncherTypeDefinition(ProjectileLauncherType.Straight), Vector2.up);
+		projectileLauncher.Initialize(ProjectileLauncherFactory.GetLauncherTypeDefinition(startingLauncher), Vector2.up);
 		GetComponent<SpriteRenderer>().sprite = greenSprite;
 
 		inputController.AddKeyCodeListener(KeyCode.Space, OnFire);

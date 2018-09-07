@@ -45,6 +45,7 @@ public class GameDirector : MonoBehaviour
 	{
 		inputController = GameController.GetController<InputController>();
 		thePlayer.OnPlayerDead += OnPlayerDead;
+		GameStats.GlobalStats.SetScore(0);
 		TransitionToState(DirectorState.LoadingLevel);
 		instance = this;
 	}

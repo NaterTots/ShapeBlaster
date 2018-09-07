@@ -120,7 +120,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  launcherType: 0
+  maxHealth: 6
+  maxLives: 3
+  blueSprite: {fileID: 21300000, guid: aad209686dbe9204b8d5d1a3adbcf4fd, type: 3}
+  greenSprite: {fileID: 21300000, guid: 50569c49c5b110742b4f6f9b0b8432bc, type: 3}
+  orangeSprite: {fileID: 21300000, guid: 285872733e9840b43b544810c8158e11, type: 3}
+  redSprite: {fileID: 21300000, guid: cb0d1d53dd0750642acc8bb6caa49d5b, type: 3}
+  startingLauncher: 1
 --- !u!114 &114731934657093394
 MonoBehaviour:
   m_ObjectHideFlags: 1
