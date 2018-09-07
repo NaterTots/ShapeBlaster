@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
+		if (invincible) return;
+
 		var projectile = collider.gameObject.GetComponent<Projectile>();
 		if (projectile != null)
 		{
@@ -102,6 +104,8 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	#region Lives
+
 	private void SetLives(int lives)
 	{
 		Lives = lives;
@@ -130,6 +134,10 @@ public class Player : MonoBehaviour
 		SetLives(Lives + lives);
 	}
 
+	#endregion Lives
+
+	#region Guns
+
 	public void SetGunAsMachineGun()
 	{
 		projectileLauncher.SetTypeDefinition(ProjectileLauncherFactory.GetLauncherTypeDefinition(ProjectileLauncherType.MachineGun));
@@ -142,10 +150,31 @@ public class Player : MonoBehaviour
 		GetComponent<SpriteRenderer>().sprite = blueSprite;
 	}
 
+	#endregion Guns
+
+	private bool invincible = false;
+
 	private void OnDied()
 	{
 		SetLives(Lives - 1);
 		SetHealth(maxHealth);
+		SetInvincibility();
+	}
+
+	private void SetInvincibility()
+	{
+		invincible = true;
+		ToggleShootingControl(false);
+		GetComponent<Animator>().Play("PlayerDead");
+		StartCoroutine(WaitAndRemoveInvincibility());
+	}
+
+	private IEnumerator WaitAndRemoveInvincibility()
+	{
+		yield return new WaitForSeconds(3.0f);
+		invincible = false;
+		ToggleShootingControl(true);
+		GetComponent<Animator>().Play("Idle");
 	}
 
 	public delegate void HealthChanged(int newHealth);
